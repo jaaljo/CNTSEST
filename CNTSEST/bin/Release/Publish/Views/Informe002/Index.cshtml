@@ -1,0 +1,238 @@
+﻿@model IEnumerable<CNTS.Models.k_cnts_01_002>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h4>CNTS-01-002: Informe Mensual de la Disposición de Células Progenitoras o Trocales</h4>
+
+<p>
+    @Html.ActionLink("Generar PDF", "CNTS_01_002", new { @controller = "Informe002" }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Enviar Informe a CNTS", "EnviarInforme", new { @controller = "Informe002" }, new { @class = "btn btn-primary" })
+</p>
+
+<br />
+<h5>Registro de Información</h5>
+<div class="Informe002 col-md-12">
+    <div class="panel-group ficha-collapse" id="accordion">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-0" aria-expanded="false" class="collapsed">
+                        Datos Generales
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-0" aria-expanded="false" aria-controls="seccion-0"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-0" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label class="control-label" for="nb_establecimiento">Nombre del Establecimiento*:</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="codigo_establecimiento">Código:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-a" aria-expanded="false" class="collapsed">
+                        Sección A.- Disposición de unidades de células troncalesy progenitoras obtenidas de sangre placentaria
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-a" aria-expanded="false" aria-controls="seccion-a"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-a" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Ingresos durante el mes informado
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Egresos y bajas de unidades de sangre placentaria durante el mes informado
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Existencias de Unidades de Células Troncales y Progenitoras obtenidas de la sangre placentaria, al cierre del informe
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-b" aria-expanded="false" class="collapsed">
+                        Sección B.- Disposición de células troncales y progenitoras obtenidas de la sangre circulante y médula ósea
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-b" aria-expanded="false" aria-controls="seccion-b"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-b" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Ingresos durante el mes informado
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Egresos durante el mes informado
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Existencias
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-c" aria-expanded="false" class="collapsed">
+                        Sección C.- Disposición de células troncalesy progenitoras obtenidas de otros tejidos
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-c" aria-expanded="false" aria-controls="seccion.-c"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-c" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Ingresos durante el mes informado
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Egresos y bajas de unidades de células troncales y progenitoras de otros tejidos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Existencias de células troncalesy progenitoras de otros tejidos, al cierre del informe
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-d" aria-expanded="false" class="collapsed">
+                        Sección D.- Número de unidades de células troncalesy progenitoras empleadas en procedimienos terapéuticos considerando la fuente de obtención
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-d" aria-expanded="false" aria-controls="seccion-d"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-d" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                De sangre placentaria
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                De sangre circulante
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                De médula ósea
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-e" aria-expanded="false" class="collapsed">
+                        Sección E.- Número de personas registradas en base de datos como donantes voluntarios o altruistas de células troncales y progenitoras
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-e" aria-expanded="false" aria-controls="seccion-e"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-e" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Número total de personas registradas en base de datos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-f" aria-expanded="false" class="collapsed">
+                        Sección F.- Número de unidades de células troncales y progenitoras, suministradas con fines de investigación
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-f" aria-expanded="false" aria-controls="seccion-f"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-f" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Uso en investigación en humanos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

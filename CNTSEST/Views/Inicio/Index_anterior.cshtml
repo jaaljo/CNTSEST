@@ -1,0 +1,87 @@
+﻿@model CNTS.Models.c_establecimiento
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="~/Content/maquetacion.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap-simplex.css" rel="stylesheet" />
+    <title>Iniciar Sesión - CNTS Plataforma de Informes</title>
+</head>
+
+<body>
+
+    @if (ViewBag.Mensaje != "false")
+    {
+        <script>
+            $("document").ready(function () {
+                $("#aviso").modal('show');
+            });
+        </script>
+
+        <div class="modal fade" id="aviso" tabindex="-1" role="dialog" aria-labelledby="Aviso" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="color: #fff; background-color: #D8220F;">
+                        <center>
+                            <h2 class="modal-title" id="gridModalLabel" style="color: #fff;">Aviso</h2>
+                        </center>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover table-responsive table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        <center>@ViewBag.Mensaje</center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Entendido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <div id="contenedor">
+        <div id="izquierda">
+            <div class="bg">
+                <img src="~/Content/Images/logo.png" width="600" height="204" border="0" style="margin-left:-300px; margin-top:80px; left:50%; position:absolute">
+            </div>
+            <div class="formulario" style="text-align:center">
+                @using (Html.BeginForm())
+                {
+                    <input type="text" id="codigo_establecimiento" name="codigo_establecimiento" class="form-control" placeholder="Código de Establecimiento" required autofocus minlength="8" maxlength="11">
+                    <br />
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required>
+                    <br />
+                    if (ViewBag.Error != null)
+                    {
+                        <span class="field-validation-error text-danger"><b>@ViewBag.Error</b></span>
+                    }
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar Sesión</button>
+                    <br />
+                    @Html.ActionLink("¿Olvidaste tu contraseña?", "RecuperarContraseña", "UsuarioNR", new { @style = "color:navy;text-align: right;font-weight: bold;" })
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    @Html.ActionLink("Solicitud de Ingreso a la Plataforma", "Paso1", new { controller = "SolicitudIncorporacion" }, new { @class = "btn btn-default" })
+                }
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+

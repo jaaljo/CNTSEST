@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CNTSModelStoreContainer" CdmEntityContainer="CNTSEntities">
+    <EntitySetMapping Name="c_cp">
+      <EntityTypeMapping TypeName="CNTSModel.c_cp">
+        <MappingFragment StoreEntitySet="c_cp">
+          <ScalarProperty Name="id_cp" ColumnName="id_cp" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="nb_tipo_asentamiento" ColumnName="nb_tipo_asentamiento" />
+          <ScalarProperty Name="nb_asentamiento" ColumnName="nb_asentamiento" />
+          <ScalarProperty Name="nb_municipio" ColumnName="nb_municipio" />
+          <ScalarProperty Name="nb_ciudad" ColumnName="nb_ciudad" />
+          <ScalarProperty Name="nb_estado" ColumnName="nb_estado" />
+          <ScalarProperty Name="nb_zona" ColumnName="nb_zona" />
+          <ScalarProperty Name="cl_tipo_asentamiento" ColumnName="cl_tipo_asentamiento" />
+          <ScalarProperty Name="cl_municipio" ColumnName="cl_municipio" />
+          <ScalarProperty Name="cl_ciudad" ColumnName="cl_ciudad" />
+          <ScalarProperty Name="cl_estado" ColumnName="cl_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_entidad_federativa">
+      <EntityTypeMapping TypeName="CNTSModel.c_entidad_federativa">
+        <MappingFragment StoreEntitySet="c_entidad_federativa">
+          <ScalarProperty Name="id_entidad_federativa" ColumnName="id_entidad_federativa" />
+          <ScalarProperty Name="cl_entidad_federativa" ColumnName="cl_entidad_federativa" />
+          <ScalarProperty Name="nb_entidad_federativa" ColumnName="nb_entidad_federativa" />
+          <ScalarProperty Name="codigo_entidad_federativa" ColumnName="codigo_entidad_federativa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_establecimiento">
+      <EntityTypeMapping TypeName="CNTSModel.c_establecimiento">
+        <MappingFragment StoreEntitySet="c_establecimiento">
+          <ScalarProperty Name="id_establecimiento" ColumnName="id_establecimiento" />
+          <ScalarProperty Name="uuid" ColumnName="uuid" />
+          <ScalarProperty Name="folio_secuencial" ColumnName="folio_secuencial" />
+          <ScalarProperty Name="codigo_establecimiento" ColumnName="codigo_establecimiento" />
+          <ScalarProperty Name="fe_registro" ColumnName="fe_registro" />
+          <ScalarProperty Name="folio_licencia_sanitaria" ColumnName="folio_licencia_sanitaria" />
+          <ScalarProperty Name="fe_emision_licencia_sanitaria" ColumnName="fe_emision_licencia_sanitaria" />
+          <ScalarProperty Name="fe_vigencia_licencia_sanitaria" ColumnName="fe_vigencia_licencia_sanitaria" />
+          <ScalarProperty Name="folio_aviso_responsable" ColumnName="folio_aviso_responsable" />
+          <ScalarProperty Name="fe_emision_aviso_responsable" ColumnName="fe_emision_aviso_responsable" />
+          <ScalarProperty Name="fe_vigencia_aviso_responsable" ColumnName="fe_vigencia_aviso_responsable" />
+          <ScalarProperty Name="nb_establecimiento" ColumnName="nb_establecimiento" />
+          <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="no_ext" ColumnName="no_ext" />
+          <ScalarProperty Name="no_int" ColumnName="no_int" />
+          <ScalarProperty Name="entre_calle1" ColumnName="entre_calle1" />
+          <ScalarProperty Name="entre_calle2" ColumnName="entre_calle2" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="id_entidad_federativa" ColumnName="id_entidad_federativa" />
+          <ScalarProperty Name="nb_responsable" ColumnName="nb_responsable" />
+          <ScalarProperty Name="ap_responsable" ColumnName="ap_responsable" />
+          <ScalarProperty Name="am_responsable" ColumnName="am_responsable" />
+          <ScalarProperty Name="especialidad_responsable" ColumnName="especialidad_responsable" />
+          <ScalarProperty Name="cedula_responsable" ColumnName="cedula_responsable" />
+          <ScalarProperty Name="email_principal_responsable" ColumnName="email_principal_responsable" />
+          <ScalarProperty Name="email_alterno_responsable" ColumnName="email_alterno_responsable" />
+          <ScalarProperty Name="telefono_fijo_responsable" ColumnName="telefono_fijo_responsable" />
+          <ScalarProperty Name="telefono_ext_responsable" ColumnName="telefono_ext_responsable" />
+          <ScalarProperty Name="telefono_movil_responsable" ColumnName="telefono_movil_responsable" />
+          <ScalarProperty Name="nb_director_unidad" ColumnName="nb_director_unidad" />
+          <ScalarProperty Name="ap_director_unidad" ColumnName="ap_director_unidad" />
+          <ScalarProperty Name="am_director_unidad" ColumnName="am_director_unidad" />
+          <ScalarProperty Name="especialidad_director_unidad" ColumnName="especialidad_director_unidad" />
+          <ScalarProperty Name="cedula_director_unidad" ColumnName="cedula_director_unidad" />
+          <ScalarProperty Name="email_principal_director_unidad" ColumnName="email_principal_director_unidad" />
+          <ScalarProperty Name="email_alterno_director_unidad" ColumnName="email_alterno_director_unidad" />
+          <ScalarProperty Name="telefono_fijo_director_unidad" ColumnName="telefono_fijo_director_unidad" />
+          <ScalarProperty Name="telefono_ext_director_unidad" ColumnName="telefono_ext_director_unidad" />
+          <ScalarProperty Name="telefono_movil_director_unidad" ColumnName="telefono_movil_director_unidad" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="password_anterior" ColumnName="password_anterior" />
+          <ScalarProperty Name="nb_archivo_1" ColumnName="nb_archivo_1" />
+          <ScalarProperty Name="nb_archivo_2" ColumnName="nb_archivo_2" />
+          <ScalarProperty Name="pregunta_1" ColumnName="pregunta_1" />
+          <ScalarProperty Name="pregunta_2" ColumnName="pregunta_2" />
+          <ScalarProperty Name="esta_activo" ColumnName="esta_activo" />
+          <ScalarProperty Name="fe_ultimo_acceso" ColumnName="fe_ultimo_acceso" />
+          <ScalarProperty Name="fe_cambio_password" ColumnName="fe_cambio_password" />
+          <ScalarProperty Name="id_tipo_establecimiento" ColumnName="id_tipo_establecimiento" />
+          <ScalarProperty Name="id_institucion" ColumnName="id_institucion" />
+          <ScalarProperty Name="id_estatus_establecimiento" ColumnName="id_estatus_establecimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_establecimiento_inicial">
+      <EntityTypeMapping TypeName="CNTSModel.c_establecimiento_inicial">
+        <MappingFragment StoreEntitySet="c_establecimiento_inicial">
+          <ScalarProperty Name="id_establecimiento_inicial" ColumnName="id_establecimiento_inicial" />
+          <ScalarProperty Name="codigo_establecimiento" ColumnName="codigo_establecimiento" />
+          <ScalarProperty Name="licencia_sanitaria" ColumnName="licencia_sanitaria" />
+          <ScalarProperty Name="nb_establecimiento" ColumnName="nb_establecimiento" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="entidad_federativa" ColumnName="entidad_federativa" />
+          <ScalarProperty Name="id_tipo_establecimiento" ColumnName="id_tipo_establecimiento" />
+          <ScalarProperty Name="id_institucion" ColumnName="id_institucion" />
+          <ScalarProperty Name="id_entidad_federativa" ColumnName="id_entidad_federativa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_estatus_establecimiento">
+      <EntityTypeMapping TypeName="CNTSModel.c_estatus_establecimiento">
+        <MappingFragment StoreEntitySet="c_estatus_establecimiento">
+          <ScalarProperty Name="id_estatus_establecimiento" ColumnName="id_estatus_establecimiento" />
+          <ScalarProperty Name="cl_estatus_establecimiento" ColumnName="cl_estatus_establecimiento" />
+          <ScalarProperty Name="nb_estatus_establecimiento" ColumnName="nb_estatus_establecimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_estatus_usuario">
+      <EntityTypeMapping TypeName="CNTSModel.c_estatus_usuario">
+        <MappingFragment StoreEntitySet="c_estatus_usuario">
+          <ScalarProperty Name="id_estatus_usuario" ColumnName="id_estatus_usuario" />
+          <ScalarProperty Name="cl_estatus_usuario" ColumnName="cl_estatus_usuario" />
+          <ScalarProperty Name="nb_estatus_usuario" ColumnName="nb_estatus_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_funcion">
+      <EntityTypeMapping TypeName="CNTSModel.c_funcion">
+        <MappingFragment StoreEntitySet="c_funcion">
+          <ScalarProperty Name="id_funcion" ColumnName="id_funcion" />
+          <ScalarProperty Name="cl_funcion" ColumnName="cl_funcion" />
+          <ScalarProperty Name="nb_funcion" ColumnName="nb_funcion" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="id_menu_funcion" ColumnName="id_menu_funcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_informe">
+      <EntityTypeMapping TypeName="CNTSModel.c_informe">
+        <MappingFragment StoreEntitySet="c_informe">
+          <ScalarProperty Name="id_informe" ColumnName="id_informe" />
+          <ScalarProperty Name="cl_informe" ColumnName="cl_informe" />
+          <ScalarProperty Name="nb_informe" ColumnName="nb_informe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_institucion">
+      <EntityTypeMapping TypeName="CNTSModel.c_institucion">
+        <MappingFragment StoreEntitySet="c_institucion">
+          <ScalarProperty Name="id_institucion" ColumnName="id_institucion" />
+          <ScalarProperty Name="cl_institucion" ColumnName="cl_institucion" />
+          <ScalarProperty Name="nb_institucion" ColumnName="nb_institucion" />
+          <ScalarProperty Name="codigo_institucion" ColumnName="codigo_institucion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_menu_funcion">
+      <EntityTypeMapping TypeName="CNTSModel.c_menu_funcion">
+        <MappingFragment StoreEntitySet="c_menu_funcion">
+          <ScalarProperty Name="id_menu_funcion" ColumnName="id_menu_funcion" />
+          <ScalarProperty Name="cl_menu_funcion" ColumnName="cl_menu_funcion" />
+          <ScalarProperty Name="nb_menu_funcion" ColumnName="nb_menu_funcion" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_parametro">
+      <EntityTypeMapping TypeName="CNTSModel.c_parametro">
+        <MappingFragment StoreEntitySet="c_parametro">
+          <ScalarProperty Name="id_parametro" ColumnName="id_parametro" />
+          <ScalarProperty Name="nb_parametro" ColumnName="nb_parametro" />
+          <ScalarProperty Name="valor_parametro" ColumnName="valor_parametro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_periodo">
+      <EntityTypeMapping TypeName="CNTSModel.c_periodo">
+        <MappingFragment StoreEntitySet="c_periodo">
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+          <ScalarProperty Name="cl_periodo" ColumnName="cl_periodo" />
+          <ScalarProperty Name="nb_periodo" ColumnName="nb_periodo" />
+          <ScalarProperty Name="fe_apertura" ColumnName="fe_apertura" />
+          <ScalarProperty Name="fe_cierre" ColumnName="fe_cierre" />
+          <ScalarProperty Name="esta_activo" ColumnName="esta_activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_rol">
+      <EntityTypeMapping TypeName="CNTSModel.c_rol">
+        <MappingFragment StoreEntitySet="c_rol">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="cl_rol" ColumnName="cl_rol" />
+          <ScalarProperty Name="nb_rol" ColumnName="nb_rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_tipo_establecimiento">
+      <EntityTypeMapping TypeName="CNTSModel.c_tipo_establecimiento">
+        <MappingFragment StoreEntitySet="c_tipo_establecimiento">
+          <ScalarProperty Name="id_tipo_establecimiento" ColumnName="id_tipo_establecimiento" />
+          <ScalarProperty Name="cl_tipo_establecimiento" ColumnName="cl_tipo_establecimiento" />
+          <ScalarProperty Name="nb_tipo_establecimiento" ColumnName="nb_tipo_establecimiento" />
+          <ScalarProperty Name="codigo_tipo_establecimiento" ColumnName="codigo_tipo_establecimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_usuario">
+      <EntityTypeMapping TypeName="CNTSModel.c_usuario">
+        <MappingFragment StoreEntitySet="c_usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="cl_usuario" ColumnName="cl_usuario" />
+          <ScalarProperty Name="nb_usuario" ColumnName="nb_usuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="password_anterior" ColumnName="password_anterior" />
+          <ScalarProperty Name="email_principal" ColumnName="email_principal" />
+          <ScalarProperty Name="no_telefono" ColumnName="no_telefono" />
+          <ScalarProperty Name="nb_puesto" ColumnName="nb_puesto" />
+          <ScalarProperty Name="fe_ultimo_acceso" ColumnName="fe_ultimo_acceso" />
+          <ScalarProperty Name="fe_cambio_password" ColumnName="fe_cambio_password" />
+          <ScalarProperty Name="no_intento_acceso" ColumnName="no_intento_acceso" />
+          <ScalarProperty Name="fe_ultimo_intento_acceso" ColumnName="fe_ultimo_intento_acceso" />
+          <ScalarProperty Name="fe_nuevo_intento_acceso" ColumnName="fe_nuevo_intento_acceso" />
+          <ScalarProperty Name="es_super_usuario" ColumnName="es_super_usuario" />
+          <ScalarProperty Name="esta_activo" ColumnName="esta_activo" />
+          <ScalarProperty Name="id_estatus_usuario" ColumnName="id_estatus_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="h_acceso_establecimiento">
+      <EntityTypeMapping TypeName="CNTSModel.h_acceso_establecimiento">
+        <MappingFragment StoreEntitySet="h_acceso_establecimiento">
+          <ScalarProperty Name="id_acceso_establecimiento" ColumnName="id_acceso_establecimiento" />
+          <ScalarProperty Name="fe_acceso" ColumnName="fe_acceso" />
+          <ScalarProperty Name="nb_funcion" ColumnName="nb_funcion" />
+          <ScalarProperty Name="id_establecimiento" ColumnName="id_establecimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="h_acceso_usuario">
+      <EntityTypeMapping TypeName="CNTSModel.h_acceso_usuario">
+        <MappingFragment StoreEntitySet="h_acceso_usuario">
+          <ScalarProperty Name="id_acceso_usuario" ColumnName="id_acceso_usuario" />
+          <ScalarProperty Name="fe_acceso" ColumnName="fe_acceso" />
+          <ScalarProperty Name="nb_funcion" ColumnName="nb_funcion" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="h_excepcion">
+      <EntityTypeMapping TypeName="CNTSModel.h_excepcion">
+        <MappingFragment StoreEntitySet="h_excepcion">
+          <ScalarProperty Name="id_excepcion" ColumnName="id_excepcion" />
+          <ScalarProperty Name="fe_excepcion" ColumnName="fe_excepcion" />
+          <ScalarProperty Name="ds_excepcion" ColumnName="ds_excepcion" />
+          <ScalarProperty Name="nb_metodo" ColumnName="nb_metodo" />
+          <ScalarProperty Name="id_funcion" ColumnName="id_funcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="h_password">
+      <EntityTypeMapping TypeName="CNTSModel.h_password">
+        <MappingFragment StoreEntitySet="h_password">
+          <ScalarProperty Name="id_password" ColumnName="id_password" />
+          <ScalarProperty Name="fe_actualizacion" ColumnName="fe_actualizacion" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_cnts_01_002">
+      <EntityTypeMapping TypeName="CNTSModel.k_cnts_01_002">
+        <MappingFragment StoreEntitySet="k_cnts_01_002">
+          <ScalarProperty Name="id_cnts_01_002" ColumnName="id_cnts_01_002" />
+          <ScalarProperty Name="fe_registro" ColumnName="fe_registro" />
+          <ScalarProperty Name="fe_envio" ColumnName="fe_envio" />
+          <ScalarProperty Name="uuid" ColumnName="uuid" />
+          <ScalarProperty Name="nb_archivo_informe" ColumnName="nb_archivo_informe" />
+          <ScalarProperty Name="esta_activo" ColumnName="esta_activo" />
+          <ScalarProperty Name="id_establecimiento" ColumnName="id_establecimiento" />
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_cnts_01_003_a">
+      <EntityTypeMapping TypeName="CNTSModel.k_cnts_01_003_a">
+        <MappingFragment StoreEntitySet="k_cnts_01_003_a">
+          <ScalarProperty Name="id_cnts_01_003_a" ColumnName="id_cnts_01_003_a" />
+          <ScalarProperty Name="fe_registro" ColumnName="fe_registro" />
+          <ScalarProperty Name="fe_envio" ColumnName="fe_envio" />
+          <ScalarProperty Name="uuid" ColumnName="uuid" />
+          <ScalarProperty Name="nb_archivo_informe" ColumnName="nb_archivo_informe" />
+          <ScalarProperty Name="esta_activo" ColumnName="esta_activo" />
+          <ScalarProperty Name="id_establecimiento" ColumnName="id_establecimiento" />
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_cnts_01_003_b">
+      <EntityTypeMapping TypeName="CNTSModel.k_cnts_01_003_b">
+        <MappingFragment StoreEntitySet="k_cnts_01_003_b">
+          <ScalarProperty Name="id_cnts_01_003_b" ColumnName="id_cnts_01_003_b" />
+          <ScalarProperty Name="fe_registro" ColumnName="fe_registro" />
+          <ScalarProperty Name="fe_envio" ColumnName="fe_envio" />
+          <ScalarProperty Name="uuid" ColumnName="uuid" />
+          <ScalarProperty Name="nb_archivo_informe" ColumnName="nb_archivo_informe" />
+          <ScalarProperty Name="esta_activo" ColumnName="esta_activo" />
+          <ScalarProperty Name="id_establecimiento" ColumnName="id_establecimiento" />
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_cnts_01_003_c">
+      <EntityTypeMapping TypeName="CNTSModel.k_cnts_01_003_c">
+        <MappingFragment StoreEntitySet="k_cnts_01_003_c">
+          <ScalarProperty Name="id_cnts_01_003_c" ColumnName="id_cnts_01_003_c" />
+          <ScalarProperty Name="fe_registro" ColumnName="fe_registro" />
+          <ScalarProperty Name="fe_envio" ColumnName="fe_envio" />
+          <ScalarProperty Name="uuid" ColumnName="uuid" />
+          <ScalarProperty Name="nb_archivo_informe" ColumnName="nb_archivo_informe" />
+          <ScalarProperty Name="esta_activo" ColumnName="esta_activo" />
+          <ScalarProperty Name="id_establecimiento" ColumnName="id_establecimiento" />
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_secc_a_tabla_01">
+      <EntityTypeMapping TypeName="CNTSModel.k_secc_a_tabla_01">
+        <MappingFragment StoreEntitySet="k_secc_a_tabla_01">
+          <ScalarProperty Name="id_cnts_01_003_a" ColumnName="id_cnts_01_003_a" />
+          <ScalarProperty Name="r01_c01" ColumnName="r01_c01" />
+          <ScalarProperty Name="r01_c02" ColumnName="r01_c02" />
+          <ScalarProperty Name="r01_c03" ColumnName="r01_c03" />
+          <ScalarProperty Name="r01_c04" ColumnName="r01_c04" />
+          <ScalarProperty Name="r01_c05" ColumnName="r01_c05" />
+          <ScalarProperty Name="r01_c06" ColumnName="r01_c06" />
+          <ScalarProperty Name="r02_c01" ColumnName="r02_c01" />
+          <ScalarProperty Name="r02_c02" ColumnName="r02_c02" />
+          <ScalarProperty Name="r02_c03" ColumnName="r02_c03" />
+          <ScalarProperty Name="r02_c04" ColumnName="r02_c04" />
+          <ScalarProperty Name="r02_c05" ColumnName="r02_c05" />
+          <ScalarProperty Name="r02_c06" ColumnName="r02_c06" />
+          <ScalarProperty Name="r03_c01" ColumnName="r03_c01" />
+          <ScalarProperty Name="r03_c02" ColumnName="r03_c02" />
+          <ScalarProperty Name="r03_c03" ColumnName="r03_c03" />
+          <ScalarProperty Name="r03_c04" ColumnName="r03_c04" />
+          <ScalarProperty Name="r03_c05" ColumnName="r03_c05" />
+          <ScalarProperty Name="r03_c06" ColumnName="r03_c06" />
+          <ScalarProperty Name="r04_c01" ColumnName="r04_c01" />
+          <ScalarProperty Name="r04_c02" ColumnName="r04_c02" />
+          <ScalarProperty Name="r04_c03" ColumnName="r04_c03" />
+          <ScalarProperty Name="r04_c04" ColumnName="r04_c04" />
+          <ScalarProperty Name="r04_c05" ColumnName="r04_c05" />
+          <ScalarProperty Name="r04_c06" ColumnName="r04_c06" />
+          <ScalarProperty Name="r05_c01" ColumnName="r05_c01" />
+          <ScalarProperty Name="r05_c02" ColumnName="r05_c02" />
+          <ScalarProperty Name="r05_c03" ColumnName="r05_c03" />
+          <ScalarProperty Name="r05_c04" ColumnName="r05_c04" />
+          <ScalarProperty Name="r05_c05" ColumnName="r05_c05" />
+          <ScalarProperty Name="r05_c06" ColumnName="r05_c06" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_secc_a_tabla_02">
+      <EntityTypeMapping TypeName="CNTSModel.k_secc_a_tabla_02">
+        <MappingFragment StoreEntitySet="k_secc_a_tabla_02">
+          <ScalarProperty Name="id_cnts_01_003_a" ColumnName="id_cnts_01_003_a" />
+          <ScalarProperty Name="r01_c01" ColumnName="r01_c01" />
+          <ScalarProperty Name="r01_c02" ColumnName="r01_c02" />
+          <ScalarProperty Name="r01_c03" ColumnName="r01_c03" />
+          <ScalarProperty Name="r01_c04" ColumnName="r01_c04" />
+          <ScalarProperty Name="r01_c05" ColumnName="r01_c05" />
+          <ScalarProperty Name="r01_c06" ColumnName="r01_c06" />
+          <ScalarProperty Name="r01_c07" ColumnName="r01_c07" />
+          <ScalarProperty Name="r01_c08" ColumnName="r01_c08" />
+          <ScalarProperty Name="r01_c09" ColumnName="r01_c09" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_secc_a_tabla_03">
+      <EntityTypeMapping TypeName="CNTSModel.k_secc_a_tabla_03">
+        <MappingFragment StoreEntitySet="k_secc_a_tabla_03">
+          <ScalarProperty Name="id_cnts_01_003_a" ColumnName="id_cnts_01_003_a" />
+          <ScalarProperty Name="r01_c01" ColumnName="r01_c01" />
+          <ScalarProperty Name="r01_c02" ColumnName="r01_c02" />
+          <ScalarProperty Name="r01_c03" ColumnName="r01_c03" />
+          <ScalarProperty Name="r01_c04" ColumnName="r01_c04" />
+          <ScalarProperty Name="r01_c05" ColumnName="r01_c05" />
+          <ScalarProperty Name="r01_c06" ColumnName="r01_c06" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_secc_a_tabla_04">
+      <EntityTypeMapping TypeName="CNTSModel.k_secc_a_tabla_04">
+        <MappingFragment StoreEntitySet="k_secc_a_tabla_04">
+          <ScalarProperty Name="id_cnts_01_003_a" ColumnName="id_cnts_01_003_a" />
+          <ScalarProperty Name="r01_c01" ColumnName="r01_c01" />
+          <ScalarProperty Name="r02_c02" ColumnName="r02_c02" />
+          <ScalarProperty Name="r02_c03" ColumnName="r02_c03" />
+          <ScalarProperty Name="r02_c04" ColumnName="r02_c04" />
+          <ScalarProperty Name="r03_c01" ColumnName="r03_c01" />
+          <ScalarProperty Name="r03_c02" ColumnName="r03_c02" />
+          <ScalarProperty Name="r03_c03" ColumnName="r03_c03" />
+          <ScalarProperty Name="r03_c04" ColumnName="r03_c04" />
+          <ScalarProperty Name="r03_c05" ColumnName="r03_c05" />
+          <ScalarProperty Name="r03_c06" ColumnName="r03_c06" />
+          <ScalarProperty Name="r04_c01" ColumnName="r04_c01" />
+          <ScalarProperty Name="r04_c02" ColumnName="r04_c02" />
+          <ScalarProperty Name="r04_c03" ColumnName="r04_c03" />
+          <ScalarProperty Name="r04_c04" ColumnName="r04_c04" />
+          <ScalarProperty Name="r04_c05" ColumnName="r04_c05" />
+          <ScalarProperty Name="r04_c06" ColumnName="r04_c06" />
+          <ScalarProperty Name="r05_c02" ColumnName="r05_c02" />
+          <ScalarProperty Name="r05_c03" ColumnName="r05_c03" />
+          <ScalarProperty Name="r05_c04" ColumnName="r05_c04" />
+          <ScalarProperty Name="r05_c05" ColumnName="r05_c05" />
+          <ScalarProperty Name="r06_c05" ColumnName="r06_c05" />
+          <ScalarProperty Name="r06_c06" ColumnName="r06_c06" />
+          <ScalarProperty Name="r07_c01" ColumnName="r07_c01" />
+          <ScalarProperty Name="r07_c02" ColumnName="r07_c02" />
+          <ScalarProperty Name="r07_c03" ColumnName="r07_c03" />
+          <ScalarProperty Name="r07_c04" ColumnName="r07_c04" />
+          <ScalarProperty Name="r07_c05" ColumnName="r07_c05" />
+          <ScalarProperty Name="r08_c01" ColumnName="r08_c01" />
+          <ScalarProperty Name="r08_c02" ColumnName="r08_c02" />
+          <ScalarProperty Name="r08_c03" ColumnName="r08_c03" />
+          <ScalarProperty Name="r08_c04" ColumnName="r08_c04" />
+          <ScalarProperty Name="r08_c05" ColumnName="r08_c05" />
+          <ScalarProperty Name="r08_c06" ColumnName="r08_c06" />
+          <ScalarProperty Name="r09_c01" ColumnName="r09_c01" />
+          <ScalarProperty Name="r09_c02" ColumnName="r09_c02" />
+          <ScalarProperty Name="r09_c03" ColumnName="r09_c03" />
+          <ScalarProperty Name="r09_c04" ColumnName="r09_c04" />
+          <ScalarProperty Name="r09_c05" ColumnName="r09_c05" />
+          <ScalarProperty Name="r09_c06" ColumnName="r09_c06" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_secc_a_tabla_05">
+      <EntityTypeMapping TypeName="CNTSModel.k_secc_a_tabla_05">
+        <MappingFragment StoreEntitySet="k_secc_a_tabla_05">
+          <ScalarProperty Name="id_cnts_01_003_a" ColumnName="id_cnts_01_003_a" />
+          <ScalarProperty Name="r01_c01" ColumnName="r01_c01" />
+          <ScalarProperty Name="r02_c04" ColumnName="r02_c04" />
+          <ScalarProperty Name="r03_c01" ColumnName="r03_c01" />
+          <ScalarProperty Name="r03_c02" ColumnName="r03_c02" />
+          <ScalarProperty Name="r03_c03" ColumnName="r03_c03" />
+          <ScalarProperty Name="r03_c04" ColumnName="r03_c04" />
+          <ScalarProperty Name="r03_c05" ColumnName="r03_c05" />
+          <ScalarProperty Name="r03_c06" ColumnName="r03_c06" />
+          <ScalarProperty Name="r04_c01" ColumnName="r04_c01" />
+          <ScalarProperty Name="r04_c02" ColumnName="r04_c02" />
+          <ScalarProperty Name="r04_c03" ColumnName="r04_c03" />
+          <ScalarProperty Name="r04_c04" ColumnName="r04_c04" />
+          <ScalarProperty Name="r04_c05" ColumnName="r04_c05" />
+          <ScalarProperty Name="r04_c06" ColumnName="r04_c06" />
+          <ScalarProperty Name="r05_c01" ColumnName="r05_c01" />
+          <ScalarProperty Name="r05_c02" ColumnName="r05_c02" />
+          <ScalarProperty Name="r05_c03" ColumnName="r05_c03" />
+          <ScalarProperty Name="r05_c04" ColumnName="r05_c04" />
+          <ScalarProperty Name="r05_c05" ColumnName="r05_c05" />
+          <ScalarProperty Name="r05_c06" ColumnName="r05_c06" />
+          <ScalarProperty Name="r06_c04" ColumnName="r06_c04" />
+          <ScalarProperty Name="r06_c05" ColumnName="r06_c05" />
+          <ScalarProperty Name="r07_c01" ColumnName="r07_c01" />
+          <ScalarProperty Name="r07_c02" ColumnName="r07_c02" />
+          <ScalarProperty Name="r07_c03" ColumnName="r07_c03" />
+          <ScalarProperty Name="r07_c04" ColumnName="r07_c04" />
+          <ScalarProperty Name="r07_c05" ColumnName="r07_c05" />
+          <ScalarProperty Name="r07_c06" ColumnName="r07_c06" />
+          <ScalarProperty Name="r08_c01" ColumnName="r08_c01" />
+          <ScalarProperty Name="r08_c02" ColumnName="r08_c02" />
+          <ScalarProperty Name="r08_c03" ColumnName="r08_c03" />
+          <ScalarProperty Name="r08_c04" ColumnName="r08_c04" />
+          <ScalarProperty Name="r08_c05" ColumnName="r08_c05" />
+          <ScalarProperty Name="r08_c06" ColumnName="r08_c06" />
+          <ScalarProperty Name="r09_c01" ColumnName="r09_c01" />
+          <ScalarProperty Name="r09_c02" ColumnName="r09_c02" />
+          <ScalarProperty Name="r09_c03" ColumnName="r09_c03" />
+          <ScalarProperty Name="r09_c04" ColumnName="r09_c04" />
+          <ScalarProperty Name="r09_c05" ColumnName="r09_c05" />
+          <ScalarProperty Name="r09_c06" ColumnName="r09_c06" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_secc_a_tabla_06">
+      <EntityTypeMapping TypeName="CNTSModel.k_secc_a_tabla_06">
+        <MappingFragment StoreEntitySet="k_secc_a_tabla_06">
+          <ScalarProperty Name="id_cnts_01_003_a" ColumnName="id_cnts_01_003_a" />
+          <ScalarProperty Name="r01_c01" ColumnName="r01_c01" />
+          <ScalarProperty Name="r01_c02" ColumnName="r01_c02" />
+          <ScalarProperty Name="r01_c03" ColumnName="r01_c03" />
+          <ScalarProperty Name="r01_c04" ColumnName="r01_c04" />
+          <ScalarProperty Name="r01_c05" ColumnName="r01_c05" />
+          <ScalarProperty Name="r01_c06" ColumnName="r01_c06" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_secc_a_tabla_07">
+      <EntityTypeMapping TypeName="CNTSModel.k_secc_a_tabla_07">
+        <MappingFragment StoreEntitySet="k_secc_a_tabla_07">
+          <ScalarProperty Name="id_cnts_01_003_a" ColumnName="id_cnts_01_003_a" />
+          <ScalarProperty Name="r01_c01" ColumnName="r01_c01" />
+          <ScalarProperty Name="r02_c01" ColumnName="r02_c01" />
+          <ScalarProperty Name="r03_c01" ColumnName="r03_c01" />
+          <ScalarProperty Name="r03_c02" ColumnName="r03_c02" />
+          <ScalarProperty Name="r03_c03" ColumnName="r03_c03" />
+          <ScalarProperty Name="r03_c04" ColumnName="r03_c04" />
+          <ScalarProperty Name="r03_c05" ColumnName="r03_c05" />
+          <ScalarProperty Name="r03_c06" ColumnName="r03_c06" />
+          <ScalarProperty Name="r04_c01" ColumnName="r04_c01" />
+          <ScalarProperty Name="r04_c02" ColumnName="r04_c02" />
+          <ScalarProperty Name="r04_c03" ColumnName="r04_c03" />
+          <ScalarProperty Name="r04_c04" ColumnName="r04_c04" />
+          <ScalarProperty Name="r04_c05" ColumnName="r04_c05" />
+          <ScalarProperty Name="r04_c06" ColumnName="r04_c06" />
+          <ScalarProperty Name="r05_c01" ColumnName="r05_c01" />
+          <ScalarProperty Name="r05_c02" ColumnName="r05_c02" />
+          <ScalarProperty Name="r05_c03" ColumnName="r05_c03" />
+          <ScalarProperty Name="r05_c04" ColumnName="r05_c04" />
+          <ScalarProperty Name="r05_c05" ColumnName="r05_c05" />
+          <ScalarProperty Name="r05_c06" ColumnName="r05_c06" />
+          <ScalarProperty Name="r06_c01" ColumnName="r06_c01" />
+          <ScalarProperty Name="r06_c02" ColumnName="r06_c02" />
+          <ScalarProperty Name="r06_c03" ColumnName="r06_c03" />
+          <ScalarProperty Name="r06_c04" ColumnName="r06_c04" />
+          <ScalarProperty Name="r06_c05" ColumnName="r06_c05" />
+          <ScalarProperty Name="r06_c06" ColumnName="r06_c06" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_secc_a_tabla_08">
+      <EntityTypeMapping TypeName="CNTSModel.k_secc_a_tabla_08">
+        <MappingFragment StoreEntitySet="k_secc_a_tabla_08">
+          <ScalarProperty Name="id_cnts_01_003_a" ColumnName="id_cnts_01_003_a" />
+          <ScalarProperty Name="r01_c02" ColumnName="r01_c02" />
+          <ScalarProperty Name="r01_c03" ColumnName="r01_c03" />
+          <ScalarProperty Name="r01_c04" ColumnName="r01_c04" />
+          <ScalarProperty Name="r02_c02" ColumnName="r02_c02" />
+          <ScalarProperty Name="r02_c03" ColumnName="r02_c03" />
+          <ScalarProperty Name="r02_c04" ColumnName="r02_c04" />
+          <ScalarProperty Name="r03_c02" ColumnName="r03_c02" />
+          <ScalarProperty Name="r03_c03" ColumnName="r03_c03" />
+          <ScalarProperty Name="r03_c04" ColumnName="r03_c04" />
+          <ScalarProperty Name="r04_c02" ColumnName="r04_c02" />
+          <ScalarProperty Name="r04_c03" ColumnName="r04_c03" />
+          <ScalarProperty Name="r04_c04" ColumnName="r04_c04" />
+          <ScalarProperty Name="r05_c02" ColumnName="r05_c02" />
+          <ScalarProperty Name="r05_c03" ColumnName="r05_c03" />
+          <ScalarProperty Name="r05_c04" ColumnName="r05_c04" />
+          <ScalarProperty Name="r06_c02" ColumnName="r06_c02" />
+          <ScalarProperty Name="r06_c03" ColumnName="r06_c03" />
+          <ScalarProperty Name="r06_c04" ColumnName="r06_c04" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="k_solicitud_incorporacion">
+      <EntityTypeMapping TypeName="CNTSModel.k_solicitud_incorporacion">
+        <MappingFragment StoreEntitySet="k_solicitud_incorporacion">
+          <ScalarProperty Name="id_solicitud_incorporacion" ColumnName="id_solicitud_incorporacion" />
+          <ScalarProperty Name="uuid" ColumnName="uuid" />
+          <ScalarProperty Name="codigo_establecimiento" ColumnName="codigo_establecimiento" />
+          <ScalarProperty Name="fe_solicitud" ColumnName="fe_solicitud" />
+          <ScalarProperty Name="fe_incorporacion" ColumnName="fe_incorporacion" />
+          <ScalarProperty Name="fe_rechazo" ColumnName="fe_rechazo" />
+          <ScalarProperty Name="ds_motivo_rechazo" ColumnName="ds_motivo_rechazo" />
+          <ScalarProperty Name="folio_licencia_sanitaria" ColumnName="folio_licencia_sanitaria" />
+          <ScalarProperty Name="fe_emision_licencia_sanitaria" ColumnName="fe_emision_licencia_sanitaria" />
+          <ScalarProperty Name="fe_vigencia_licencia_sanitaria" ColumnName="fe_vigencia_licencia_sanitaria" />
+          <ScalarProperty Name="folio_aviso_responsable" ColumnName="folio_aviso_responsable" />
+          <ScalarProperty Name="fe_emision_aviso_responsable" ColumnName="fe_emision_aviso_responsable" />
+          <ScalarProperty Name="fe_vigencia_aviso_responsable" ColumnName="fe_vigencia_aviso_responsable" />
+          <ScalarProperty Name="nb_establecimiento" ColumnName="nb_establecimiento" />
+          <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="no_ext" ColumnName="no_ext" />
+          <ScalarProperty Name="no_int" ColumnName="no_int" />
+          <ScalarProperty Name="entre_calle1" ColumnName="entre_calle1" />
+          <ScalarProperty Name="entre_calle2" ColumnName="entre_calle2" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="id_entidad_federativa" ColumnName="id_entidad_federativa" />
+          <ScalarProperty Name="nb_responsable" ColumnName="nb_responsable" />
+          <ScalarProperty Name="ap_responsable" ColumnName="ap_responsable" />
+          <ScalarProperty Name="am_responsable" ColumnName="am_responsable" />
+          <ScalarProperty Name="especialidad_responsable" ColumnName="especialidad_responsable" />
+          <ScalarProperty Name="cedula_responsable" ColumnName="cedula_responsable" />
+          <ScalarProperty Name="email_principal_responsable" ColumnName="email_principal_responsable" />
+          <ScalarProperty Name="email_alterno_responsable" ColumnName="email_alterno_responsable" />
+          <ScalarProperty Name="telefono_fijo_responsable" ColumnName="telefono_fijo_responsable" />
+          <ScalarProperty Name="telefono_ext_responsable" ColumnName="telefono_ext_responsable" />
+          <ScalarProperty Name="telefono_movil_responsable" ColumnName="telefono_movil_responsable" />
+          <ScalarProperty Name="nb_director_unidad" ColumnName="nb_director_unidad" />
+          <ScalarProperty Name="ap_director_unidad" ColumnName="ap_director_unidad" />
+          <ScalarProperty Name="am_director_unidad" ColumnName="am_director_unidad" />
+          <ScalarProperty Name="especialidad_director_unidad" ColumnName="especialidad_director_unidad" />
+          <ScalarProperty Name="cedula_director_unidad" ColumnName="cedula_director_unidad" />
+          <ScalarProperty Name="email_principal_director_unidad" ColumnName="email_principal_director_unidad" />
+          <ScalarProperty Name="email_alterno_director_unidad" ColumnName="email_alterno_director_unidad" />
+          <ScalarProperty Name="telefono_fijo_director_unidad" ColumnName="telefono_fijo_director_unidad" />
+          <ScalarProperty Name="telefono_ext_director_unidad" ColumnName="telefono_ext_director_unidad" />
+          <ScalarProperty Name="telefono_movil_director_unidad" ColumnName="telefono_movil_director_unidad" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="nb_archivo_1" ColumnName="nb_archivo_1" />
+          <ScalarProperty Name="nb_archivo_2" ColumnName="nb_archivo_2" />
+          <ScalarProperty Name="data_archivo_1" ColumnName="data_archivo_1" />
+          <ScalarProperty Name="data_archivo_2" ColumnName="data_archivo_2" />
+          <ScalarProperty Name="pregunta_1" ColumnName="pregunta_1" />
+          <ScalarProperty Name="pregunta_2" ColumnName="pregunta_2" />
+          <ScalarProperty Name="id_tipo_establecimiento" ColumnName="id_tipo_establecimiento" />
+          <ScalarProperty Name="id_institucion" ColumnName="id_institucion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_establecimiento">
+      <EntityTypeMapping TypeName="CNTSModel.v_establecimiento">
+        <MappingFragment StoreEntitySet="v_establecimiento">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="codigo_establecimiento" ColumnName="codigo_establecimiento" />
+          <ScalarProperty Name="nb_establecimiento" ColumnName="nb_establecimiento" />
+          <ScalarProperty Name="nb_tipo_establecimiento" ColumnName="nb_tipo_establecimiento" />
+          <ScalarProperty Name="nb_institucion" ColumnName="nb_institucion" />
+          <ScalarProperty Name="nb_entidad_federativa" ColumnName="nb_entidad_federativa" />
+          <ScalarProperty Name="id_establecimiento" ColumnName="id_establecimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="c_funcion_rol" TypeName="CNTSModel.c_funcion_rol" StoreEntitySet="c_funcion_rol">
+      <EndProperty Name="c_funcion">
+        <ScalarProperty Name="id_funcion" ColumnName="id_funcion" />
+      </EndProperty>
+      <EndProperty Name="c_rol">
+        <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="c_informe_establecimiento" TypeName="CNTSModel.c_informe_establecimiento" StoreEntitySet="c_informe_establecimiento">
+      <EndProperty Name="c_establecimiento">
+        <ScalarProperty Name="id_establecimiento" ColumnName="id_establecimiento" />
+      </EndProperty>
+      <EndProperty Name="c_informe">
+        <ScalarProperty Name="id_informe" ColumnName="id_informe" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="c_informe_tipo_establecimiento" TypeName="CNTSModel.c_informe_tipo_establecimiento" StoreEntitySet="c_informe_tipo_establecimiento">
+      <EndProperty Name="c_informe">
+        <ScalarProperty Name="id_informe" ColumnName="id_informe" />
+      </EndProperty>
+      <EndProperty Name="c_tipo_establecimiento">
+        <ScalarProperty Name="id_tipo_establecimiento" ColumnName="id_tipo_establecimiento" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="c_rol_usuario" TypeName="CNTSModel.c_rol_usuario" StoreEntitySet="c_rol_usuario">
+      <EndProperty Name="c_rol">
+        <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+      </EndProperty>
+      <EndProperty Name="c_usuario">
+        <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="incorpora_establecimiento" FunctionName="CNTSModel.Store.incorpora_establecimiento" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,75 @@
+﻿@model CNTS.Models.k_cnts_01_002
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>k_cnts_01_002</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_registro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_registro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_envio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_envio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uuid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uuid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nb_archivo_informe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_archivo_informe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.esta_activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.esta_activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_establecimiento.uuid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_establecimiento.uuid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_periodo.cl_periodo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_periodo.cl_periodo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_cnts_01_002 }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

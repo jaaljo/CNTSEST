@@ -1,0 +1,539 @@
+﻿@model CNTS.Models.k_solicitud_incorporacion
+
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CNTS - Solicitud de acceso a la Plataforma de Informes</title>
+
+
+    <!-- CSS -->
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
+
+    <!-- Respond.js soporte de media queries para Internet Explorer 8 -->
+    <!-- ie8.js EventTarget para cada nodo en Internet Explorer 8 -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ie8/0.2.2/ie8.js"></script>
+    <![endif]-->
+
+    <link href="~/Content/bootstrap-toggle.min.css" rel="stylesheet" />
+    <script src="~/Scripts/certificacion.js"></script>
+    <script src="~/Scripts/jquery-2.2.4.js"></script>
+    <script>
+        function toggle(obj) {
+            $(div).toggle(obj.checked);
+            //$(codigo).toggle(obj.checked);
+        }
+
+
+        $(document).ready(function () {
+            @if(Model.cp != null)
+            {
+                @:getDataFromCp(@Model.cp);
+            }
+
+
+            $("#cp").keyup(function () {
+                var $this = $(this);
+                var texto = $this.val();
+
+                var is5lg = texto.length == 5 ? true : false;
+                var isNum = !isNaN(texto);
+
+                if (is5lg && isNum) {
+                    getDataFromCp(texto);
+                } else {
+                    $("#municipio").val("");
+                    $("#colonia").val("");
+                    $("#ciudad").val("");
+                    $("#id_entidad_federativa").val("")
+                    $("#nb_estado").val("");
+                }
+
+            });
+        });
+
+
+        function getDataFromCp(cp) {
+            $.ajax({
+                dataType: "html",
+                type: "post",
+                cache: false,
+                url: '@(Url.Action("PostalCode", "SolicitudIncorporacion"))',
+                data: {cp},
+                success: function (data) {
+                    if (data == null) {
+                        alert("no se encontró el cp");
+                        return;
+                    }
+
+                    var myObj = JSON.parse(data);
+                    //alert(data);
+
+
+                    $("#municipio").val(myObj.nb_municipio);
+                    $("#colonia").val(myObj.nb_asentamiento);
+                    $("#ciudad").val(myObj.nb_ciudad);
+                    $("#id_entidad_federativa").val(myObj.cl_estado)
+                    $("#nb_estado").val(myObj.nb_estado);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        }
+
+    </script>
+
+</head>
+<body>
+    @if (ViewBag.Mensaje != null)
+    {
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>¡Error de Registro! </strong> @ViewBag.Mensaje
+        </div>
+    }
+    <!-- Contenido -->
+    <main class="page">
+        <div class="container">
+            <h2>Registro Nacional de Bancos de Sangre</h2>
+            <h3>Solicitud de Incorporación</h3>
+            <div class="row">
+                <div class="col-md-12 hidden-xs">
+                    <ul class="wizard-steps">
+                        <li class="wizardbar-i ">
+                            <h5>Paso 1</h5>
+                            <span>Inicio de Solicitud</span>
+                        </li>
+                        <li class="wizardbar-i completed">
+                            <h5>Paso 2</h5>
+                            <span>Captura de Información</span>
+                        </li>
+                        <li class="wizardbar-i ">
+                            <h5>Paso 3</h5>
+                            <span>Adjuntar Documentos</span>
+                        </li>
+                        <li class="wizardbar-i ">
+                            <h5>Paso 4</h5>
+                            <span>Fin de Solicitud</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    @using (Html.BeginForm("Paso3", null, FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="col-md-12">
+                            <h4>Datos Generales del Establecimiento</h4>
+                            <hr class="red">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="control-label" for="nb_establecimiento">Nombre del Establecimiento*:</label>
+                                    @Html.EditorFor(model => model.nb_establecimiento, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.nb_establecimiento, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="codigo_establecimiento">Código:</label>
+                                    @if (Model.codigo_establecimiento != null)
+                                    {
+                                        @Html.EditorFor(model => model.codigo_establecimiento, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                                    }
+                                    else
+                                    {
+                                        <input type="text" name="label" value="POR ASIGNAR" disabled="disabled">
+                                        <input type="hidden" name="codigo_establecimiento" value="">
+                                    }
+                                    @Html.HiddenFor(model => model.codigo_establecimiento)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="control-label" for="razon_social">Razón Social*:</label>
+                                    @Html.EditorFor(model => model.razon_social, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.razon_social, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="rfc">R.F.C.:</label>
+                                    @Html.EditorFor(model => model.rfc, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="licencia_sanitaria">Número de Licencia Sanitaria*:</label>
+                                    @Html.EditorFor(model => model.folio_licencia_sanitaria, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.folio_licencia_sanitaria, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="id_tipo_establecimiento">Tipo de Establecimiento:</label>
+                                    @if (Model.codigo_establecimiento != null)
+                                    {
+                                        @Html.DropDownList("id_tipo_establecimiento", null, "-Seleccione el Tipo de Establecimiento-", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                        @Html.HiddenFor(model => model.id_tipo_establecimiento)
+                                    }
+                                    else
+                                    {
+                                        @Html.DropDownList("id_tipo_establecimiento", null, "-Seleccione el Tipo de Establecimiento-", htmlAttributes: new { @class = "form-control" })
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="id_institucion">Sector:</label>
+                                    @if (Model.codigo_establecimiento != null)
+                                    {
+                                        @Html.DropDownList("id_institucion", null, "-Seleccione el Tipo de Institución-", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                        @Html.HiddenFor(model => model.id_institucion)
+                                    }
+                                    else
+                                    {
+                                        @Html.DropDownList("id_institucion", null, "-Seleccione el Tipo de Institución-", htmlAttributes: new { @class = "form-control" })
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="col-md-12">
+                            <h4>Responsable del Establecimiento</h4>
+                            <hr class="red">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="nb_responsable">Nombre(s)*:</label>
+                                    @Html.EditorFor(model => model.nb_responsable, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.nb_responsable, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="ap_responsable">Apellido Paterno*:</label>
+                                    @Html.EditorFor(model => model.ap_responsable, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.ap_responsable, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="am_responsable">Apellido Materno:</label>
+                                    @Html.EditorFor(model => model.am_responsable, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="cedula_responsable">Cédula Profesional*:</label>
+                                    @Html.EditorFor(model => model.cedula_responsable, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.cedula_responsable, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="especialidad_responsable">Especialidad Médica*:</label>
+                                    @Html.EditorFor(model => model.especialidad_responsable, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.especialidad_responsable, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="email_principal_responsable">Correo Electrónico Principal*:</label>
+                                    @Html.EditorFor(model => model.email_principal_responsable, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.email_principal_responsable, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="email_alterno_responsable">Correo Electrónico Alterno:</label>
+                                    @Html.EditorFor(model => model.email_alterno_responsable, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="telefono_fijo_responsable">Teléfono Fijo*:</label>
+                                    @Html.EditorFor(model => model.telefono_fijo_responsable, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.telefono_fijo_responsable, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label" for="telefono_ext_responsable">Extensión:</label>
+                                    @Html.EditorFor(model => model.telefono_ext_responsable, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div class="col-md-offset-2 col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="telefono_movil_responsable">Teléfono Celular*:</label>
+                                    @Html.EditorFor(model => model.telefono_movil_responsable, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.telefono_movil_responsable, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="col-md-12">
+                            <h4>Director de la Unidad Médica</h4>
+                            <hr class="red">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="nb_director_unidad">Nombre(s)*:</label>
+                                    @Html.EditorFor(model => model.nb_director_unidad, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.nb_director_unidad, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="ap_director_unidad">Apellido Paterno*:</label>
+                                    @Html.EditorFor(model => model.ap_director_unidad, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.ap_director_unidad, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="am_director_unidad">Apellido Materno:</label>
+                                    @Html.EditorFor(model => model.am_director_unidad, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="cedula_director_unidad">Cédula Profesional*:</label>
+                                    @Html.EditorFor(model => model.cedula_director_unidad, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.cedula_director_unidad, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="especialidad_director_unidad">Especialidad Médica*:</label>
+                                    @Html.EditorFor(model => model.especialidad_director_unidad, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.especialidad_director_unidad, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="email_principal_director_unidad">Correo Electrónico Principal*:</label>
+                                    @Html.EditorFor(model => model.email_principal_director_unidad, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.email_principal_director_unidad, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="email_alterno_director_unidad">Correo Electrónico Alterno:</label>
+                                    @Html.EditorFor(model => model.email_alterno_director_unidad, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="telefono_fijo_responsable">Teléfono Fijo*:</label>
+                                    @Html.EditorFor(model => model.telefono_fijo_director_unidad, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.telefono_fijo_director_unidad, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label" for="telefono_ext_director_unidad">Extensión:</label>
+                                    @Html.EditorFor(model => model.telefono_ext_director_unidad, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div class="col-md-offset-2 col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="telefono_movil_director_unidad">Teléfono Celular*:</label>
+                                    @Html.EditorFor(model => model.telefono_movil_director_unidad, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.telefono_movil_director_unidad, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="col-md-12">
+                            <h4>Domicilio del Establecimiento</h4>
+                            <hr class="red">
+                        </div>
+
+                        <div id="div" class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="control-label" for="calle">Calle*:</label>
+                                    @Html.EditorFor(model => model.calle, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.calle, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label" for="no_ext">No. Exterior*:</label>
+                                    @Html.EditorFor(model => model.no_ext, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                    @Html.ValidationMessageFor(model => model.no_ext, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label" for="no_int">No. Interior:</label>
+                                    @Html.EditorFor(model => model.no_int, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="div" class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="entre_calle1">Entre la Calle:</label>
+                                    @Html.EditorFor(model => model.entre_calle1, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="entre_calle1">Y la Calle:</label>
+                                    @Html.EditorFor(model => model.entre_calle2, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="div" class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="cp">Código Postal*:</label>
+                                    @Html.EditorFor(model => model.cp, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.cp, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="control-label" for="colonia">Colonia*:</label>
+                                    @Html.EditorFor(model => model.colonia, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;",@readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.colonia, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="div" class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="municipio">Municipio*:</label>
+                                    @Html.EditorFor(model => model.municipio, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;", @readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.municipio, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="ciudad">Ciudad*:</label>
+                                    @Html.EditorFor(model => model.ciudad, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: uppercase;", @readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.ciudad, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="id_entidad_federativa">Entidad Federativa*:</label>
+                                    <input type="hidden" id="id_entidad_federativa" name="id_entidad_federativa">
+                                    <input type="text" id="nb_estado" class="form-control" readonly style = "text-transform: uppercase;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div id="div" class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="pregunta_1">¿El establecimiento se encuentra dentro de un hospital?:</label>
+                                    @Html.EditorFor(model => model.pregunta_1, new { htmlAttributes = new { data_toggle = "toggle", data_on = "SI", data_off = "NO", data_width = "150" } })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="pregunta_2">¿Cuenta con comité de medicina transfusional?:</label>
+                                    @Html.EditorFor(model => model.pregunta_2, new { htmlAttributes = new { data_toggle = "toggle", data_on = "SI", data_off = "NO", data_width = "150" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-4 h5">
+                                * Campos obligatorios
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group pull-right">
+                                    @Html.ActionLink("Regresar", "Paso1", new { @controller = "SolicitudIncorporacion" }, new { @class = "btn btn-default" })
+                                    <input type="submit" value="Siguiente" class="btn btn-primary" id="submit" />
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script src="~/Scripts/jquery-2.2.4.min.js"></script>
+    <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+    <script src="~/Scripts/bootstrap-toggle.min.js"></script>
+</body>
+</html>

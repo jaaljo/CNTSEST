@@ -1,0 +1,119 @@
+﻿@model CNTS.Models.k_secc_a_tabla_03
+
+@{
+    ViewBag.Title = "A03";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h2>Informe CNTS-01-003-A</h2>
+<h3>SECCIÓN A. Uso Alogénico</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id_cnts_01_003_a)
+
+        <div class="row">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <h4><strong>Existencias al inicio del mes que informa</strong></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 text-right">
+                <div class="form-group">
+                    <label class="control-label"></label>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label small">Sangre total</label>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label small">Concentrado de eritrocitos</label>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label small">Concentrado de plaquetas</label>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label small">Plasma  fresco</label>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label small">Plasma desprovisto de factores lábiles</label>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label small">Crio-precipitados</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 text-right">
+                <div class="form-group">
+                    <label class="control-label">Existencias al inicio del mes que informa:&emsp;</label>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.r01_c01, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.r01_c02, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.r01_c03, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.r01_c04, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.r01_c05, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.r01_c06, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-offset-9">
+                <div class="form-group">
+                    @Html.ActionLink("Regresar", "Index", new { @controller = "Informe003A" }, new { @class = "btn btn-default" })
+                    <input type="submit" value="Guardar" class="btn btn-primary" id="submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+}

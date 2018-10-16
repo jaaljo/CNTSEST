@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CNTS - @ViewBag.Title</title>
+
+    <!-- CSS -->
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
+
+    <!-- Respond.js soporte de media queries para Internet Explorer 8 -->
+    <!-- ie8.js EventTarget para cada nodo en Internet Explorer 8 -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ie8/0.2.2/ie8.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="~/Scripts/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#results').dataTable({
+                responsive: true,
+                pagingType: "full_numbers",
+                lengthChange: true,
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+                columnDefs: [
+                    { orderable: false, targets: -1 }
+                ],
+                language: {
+                    emptyTable: "Sin resultados para los criterios de consulta",
+                    info: "Registros _START_ al _END_ de _TOTAL_",
+                    infoEmpty: "Sin resultados que mostrar",
+                    infoFiltered: "(filtrados de un total de _MAX_)",
+                    search: "Buscar",
+                    zeroRecords: "Ning&uacute;n dato encontrado",
+                    paginate: {
+                        first: "<<",
+                        next: ">",
+                        last: ">>",
+                        previous: "<"
+                    },
+                    lengthMenu: "Mostrar _MENU_ registros"
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Contenido -->
+    <main class="page">
+        @Html.Partial("_Menu")
+        <div class="container-fluid">
+            <br /><br /><br />
+            @RenderBody()
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+
+</body>
+</html>

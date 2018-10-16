@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a795f0c7081d41abad8d2c3c12e06988" Name="Diagram1">
+        <EntityTypeShape EntityType="CNTSModel.c_cp" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_entidad_federativa" Width="1.5" PointX="1.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_establecimiento" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_establecimiento_inicial" Width="1.5" PointX="2.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_estatus_establecimiento" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_estatus_usuario" Width="1.5" PointX="15.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_funcion" Width="1.5" PointX="13" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_informe" Width="1.5" PointX="1.5" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_institucion" Width="1.5" PointX="1.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_menu_funcion" Width="1.5" PointX="10.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_parametro" Width="1.5" PointX="4.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_periodo" Width="1.5" PointX="0.75" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_rol" Width="1.5" PointX="15.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_tipo_establecimiento" Width="1.5" PointX="1.5" PointY="42.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.c_usuario" Width="1.5" PointX="17.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.h_acceso_establecimiento" Width="1.5" PointX="3" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.h_acceso_usuario" Width="1.5" PointX="19.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.h_excepcion" Width="1.5" PointX="15.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.h_password" Width="1.5" PointX="19.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_cnts_01_002" Width="1.5" PointX="3" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_cnts_01_003_a" Width="1.5" PointX="6" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_cnts_01_003_b" Width="1.5" PointX="3" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_cnts_01_003_c" Width="1.5" PointX="3" PointY="37.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_secc_a_tabla_01" Width="1.5" PointX="8.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_secc_a_tabla_02" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_secc_a_tabla_03" Width="1.5" PointX="8.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_secc_a_tabla_04" Width="1.5" PointX="8.25" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_secc_a_tabla_05" Width="1.5" PointX="8.25" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_secc_a_tabla_06" Width="1.5" PointX="8.25" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_secc_a_tabla_07" Width="1.5" PointX="8.25" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_secc_a_tabla_08" Width="1.5" PointX="8.25" PointY="55.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.k_solicitud_incorporacion" Width="1.5" PointX="5.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNTSModel.v_establecimiento" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="CNTSModel.FK__c_estable__id_en__786B6DB5" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_solicit__id_en__17E4190E" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__c_estable__id_es__795F91EE" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__c_estable__id_in__7777497C" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__c_estable__id_ti__76832543" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__h_acceso___id_es__03DD2061" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_cnts_01__id_es__08A1D57E" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_cnts_01__id_es__0995F9B7" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_cnts_01__id_es__0C726662" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_cnts_01__id_es__0E5AAED4" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__c_usuario__id_es__02E8FC28" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__c_funcion__id_me__7A53B627" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__h_excepci__id_fu__05C568D3" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_solicit__id_in__16EFF4D5" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_cnts_01__id_pe__07ADB145" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_cnts_01__id_pe__0A8A1DF0" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_cnts_01__id_pe__0B7E4229" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_cnts_01__id_pe__0D668A9B" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_solicit__id_ti__18D83D47" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__h_acceso___id_us__04D1449A" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__h_passwor__id_us__06B98D0C" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_secc_a___id_cn__0F4ED30D" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_secc_a___id_cn__1042F746" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_secc_a___id_cn__11371B7F" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_secc_a___id_cn__122B3FB8" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_secc_a___id_cn__131F63F1" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_secc_a___id_cn__1413882A" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_secc_a___id_cn__1507AC63" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.FK__k_secc_a___id_cn__15FBD09C" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.c_funcion_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.c_informe_establecimiento" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.c_informe_tipo_establecimiento" ManuallyRouted="false" />
+        <AssociationConnector Association="CNTSModel.c_rol_usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

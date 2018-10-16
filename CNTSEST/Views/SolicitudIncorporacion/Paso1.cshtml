@@ -1,0 +1,132 @@
+﻿@model CNTS.ViewModels.ValidaEstablecimiento
+
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CNTS - Solicitud de acceso a la Plataforma de Informes</title>
+
+
+    <!-- CSS -->
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
+
+    <!-- Respond.js soporte de media queries para Internet Explorer 8 -->
+    <!-- ie8.js EventTarget para cada nodo en Internet Explorer 8 -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ie8/0.2.2/ie8.js"></script>
+    <![endif]-->
+
+    <script>
+        function toggle(obj) {
+            $(div).toggle(obj.checked);
+            //$(codigo).toggle(obj.checked);
+        }
+    </script>
+</head>
+<body>
+    @if (ViewBag.Mensaje != null)
+    {
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>¡Atención!</strong> @ViewBag.Mensaje
+        </div>
+    }
+    <!-- Contenido -->
+    <main class="page">
+        <div class="container">
+            <h2>Registro Nacional de Bancos de Sangre</h2>
+            <h3>Solicitud de Incorporación</h3>
+            <div class="row">
+                <div class="col-md-12 hidden-xs">
+                    <ul class="wizard-steps">
+                        <li class="wizardbar-i completed">
+                            <h5>Paso 1</h5>
+                            <span>Inicio de Solicitud</span>
+                        </li>
+                        <li class="wizardbar-i ">
+                            <h5>Paso 2</h5>
+                            <span>Captura de Información</span>
+                        </li>
+                        <li class="wizardbar-i ">
+                            <h5>Paso 3</h5>
+                            <span>Adjuntar Documentos</span>
+                        </li>
+                        <li class="wizardbar-i ">
+                            <h5>Paso 4</h5>
+                            <span>Fin de Solicitud</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <p>
+                        La solicitud de acceso a la Plataforma de Informes, permite al Establecimiento (previa autorización por parte del CNTS) su ingreso a fin de poder requisitar los informes mensuales a los que se encuentra obligado presentar.
+                    </p>
+                    <p>
+                        Es muy importante tener preparados y disponibles los siguientes documentos en formato PDF para su incorporación a la solicitud:
+                    </p>
+                    <ul>
+                        <li>
+                            Licencia Sanitaria (COFEPRIS-05-034-C) emitida por la COFEPRIS
+                        </li>
+                        <li>
+                            Aviso de Responsable Sanitario (FF-COFEPRIS-02) emitido por la COFEPRIS
+                        </li>
+                    </ul>
+                    <p>
+                        De contar ya con un Código de Establecimiento asignado previamente por el CNTS, deberá de digitarlo en el campo correspondiente.
+                    </p>
+                    <p>
+                        Si no cuentas con tu código de establecimiento, puedes consultar la lista de establecimientos registrados <a>Aquí</a>.
+                    </p>
+                    <p>
+                        El Código de Establecimiento tiene una longitud de 11 caracteres y tiene la siguiente estructura: 99-99-9-999
+                    </p>
+                    <br />
+                    <br />
+                    <div class="col-sm-6">
+                        @using (Html.BeginForm("Paso2", null, FormMethod.Post, new { onsubmit = "deshabilitar()" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="checkbox">
+                                <label>
+                                    @Html.EditorFor(model => model.EsEstablecimientoExistente, new { htmlAttributes = new { onclick = "toggle(this)" } })
+                                    Ya cuento con un Código de Establecimiento
+                                </label>
+                            </div>
+                            <br />
+
+                            <div id="div" class="row" @(!Model.EsEstablecimientoExistente ? "hidden=hidden" : "")>
+                                <div class="form-group">
+                                    <label class="control-label" for="CodigoEstablecimiento">Código de Establecimiento:</label>
+                                    @Html.EditorFor(model => model.CodigoEstablecimiento, new { htmlAttributes = new { @id = "codigo", @class = "form-control", @placeholder = "99-99-9-999" } })
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="form-group pull-right">
+                                    @Html.ActionLink("Cancelar", "Index", new { @controller = "Inicio" }, new { @class = "btn btn-default" })
+                                    <input type="submit" value="Siguiente" class="btn btn-primary" id="submit" />
+                                </div>
+                            </div>
+                            <br />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+
+</body>
+</html>

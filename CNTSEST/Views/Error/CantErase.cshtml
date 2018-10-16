@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Error al Borrar";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-horizontal well">
+        <center>
+            <h4>Lo sentimos</h4><br><br>
+            <h1 style="font-size: 3cm"><span class="glyphicon glyphicon-remove"></span></h1><br><br>
+            <h4>El elemento actual no puede ser eliminado. Esto se puede deber a que existen otros elementos a los cuales está ligado.</h4>
+            <a href="javascript:window.history.go(-1);" class="btn btn-default">Regresar</a>
+        </center>
+    </div>
+}

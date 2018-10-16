@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CNTS</title>
+
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" type="text/css" href="~/Content/DataTables/css/dataTables.bootstrap.min.css" />
+
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @*<script type="text/javascript" src="~/Scripts/jquery-2.2.4.min.js"></script>*@
+    @*<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>*@
+    <link href="https://framework-gb.cdn.gob.mx/qa/assets/styles/main.css" rel="stylesheet">
+    <script type="text/javascript" src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+</head>
+<body>
+    @Html.Partial("_Menu")
+    <div class="container-fluid">
+        <br />
+        @RenderBody()
+        <hr />
+        @Html.Partial("_Footer")
+    </div>
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+
+            $('#results thead th.search').each(function () {
+                var title = $(this).text();
+                $(this).html(title + '<br><div class="form-group"><div class="col-xs-12"><div class="input-group input-group-sm"><input type="text" class="form-control " placeholder="Buscar ' + title + '" /></div></div></div>');
+            });
+
+            var table = $('#results,.results').DataTable({
+                responsive: true,
+                pagingType: "full_numbers",
+                lengthChange: true,
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+                columnDefs: [
+                    { orderable: false, targets: -1 }
+                ],
+                language: {
+                    emptyTable: "Sin resultados para los criterios de consulta",
+                    info: "Registros _START_ al _END_ de _TOTAL_",
+                    infoEmpty: "Sin resultados que mostrar",
+                    infoFiltered: "(filtrados de un total de _MAX_)",
+                    search: "Buscar",
+                    zeroRecords: "Ning&uacute;n dato encontrado",
+                    paginate: {
+                        first: "<<",
+                        next: ">",
+                        last: ">>",
+                        previous: "<"
+                    },
+                    lengthMenu: "Mostrar _MENU_ registros"
+                }
+            });
+
+
+            table.columns().every(function () {
+                var that = this;
+                $('input', this.header()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+
+
+            //en caso de que exista una segunda tabla
+            if ($("#results2").length > 0) {
+                loadTable2();
+            }
+
+
+
+        });
+
+        function loadTable2() {
+            $('#results2 thead th.search').each(function () {
+                var title = $(this).text();
+                $(this).html(title + '<br><div class="form-group"><div class="col-xs-12"><div class="input-group input-group-sm"><input type="text" class="form-control " placeholder="Buscar ' + title + '" /></div></div></div>');
+            });
+
+            var table2 = $('#results2').DataTable({
+                responsive: true,
+                pagingType: "full_numbers",
+                lengthChange: true,
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+                columnDefs: [
+                    { orderable: false, targets: -1 }
+                ],
+                language: {
+                    emptyTable: "Sin resultados para los criterios de consulta",
+                    info: "Registros _START_ al _END_ de _TOTAL_",
+                    infoEmpty: "Sin resultados que mostrar",
+                    infoFiltered: "(filtrados de un total de _MAX_)",
+                    search: "Buscar",
+                    zeroRecords: "Ning&uacute;n dato encontrado",
+                    paginate: {
+                        first: "<<",
+                        next: ">",
+                        last: ">>",
+                        previous: "<"
+                    },
+                    lengthMenu: "Mostrar _MENU_ registros"
+                }
+            });
+
+
+
+            table2.columns().every(function () {
+                var that = this;
+                $('input', this.header()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+        }
+
+    </script>
+    <script src="https://framework-gb.cdn.gob.mx/qa/gobmx.js"></script>
+</body>
+</html>

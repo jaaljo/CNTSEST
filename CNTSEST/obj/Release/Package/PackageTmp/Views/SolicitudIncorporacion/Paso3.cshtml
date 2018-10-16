@@ -1,0 +1,405 @@
+﻿@model CNTS.Models.k_solicitud_incorporacion
+@using reCAPTCHA.MVC
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CNTS - Solicitud de acceso a la Plataforma de Informes</title>
+
+
+    <!-- CSS -->
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
+
+    <!-- Respond.js soporte de media queries para Internet Explorer 8 -->
+    <!-- ie8.js EventTarget para cada nodo en Internet Explorer 8 -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ie8/0.2.2/ie8.js"></script>
+    <![endif]-->
+    <script src="~/Scripts/respond.js"></script>
+    <script>
+        function FileName(id) {
+            var filename = $("#f" + id).val();
+            $("#nb_a" + id).val(filename);
+        }
+
+        function ResetFileName(id) {
+            $("#f" + id).val("");
+            $("#nb_a" + id).val("");
+        }
+    </script>
+</head>
+<body>
+    @if (ViewBag.Mensaje != null)
+    {
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>¡Atención!</strong> @ViewBag.Mensaje
+        </div>
+    }
+    <!-- Contenido -->
+    <main class="page">
+        <div class="container">
+            <h2>Registro Nacional de Bancos de Sangre</h2>
+            <h3>Solicitud de Incorporación</h3>
+            <div class="row">
+                <div class="col-md-12 hidden-xs">
+                    <ul class="wizard-steps">
+                        <li class="wizardbar-i ">
+                            <h5>Paso 1</h5>
+                            <span>Inicio de Solicitud</span>
+                        </li>
+                        <li class="wizardbar-i ">
+                            <h5>Paso 2</h5>
+                            <span>Captura de Información</span>
+                        </li>
+                        <li class="wizardbar-i completed">
+                            <h5>Paso 3</h5>
+                            <span>Adjuntar Documentos</span>
+                        </li>
+                        <li class="wizardbar-i ">
+                            <h5>Paso 4</h5>
+                            <span>Fin de Solicitud</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    @using (Html.BeginForm("ConfirmaSolicitud", "SolicitudIncorporacion", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(model => model.codigo_establecimiento)
+                        @Html.HiddenFor(model => model.pregunta_1)
+                        @Html.HiddenFor(model => model.pregunta_2)
+
+                        <div class="col-md-12">
+                            <h4>Datos Generales del Establecimiento</h4>
+                            <hr class="red">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre del Establecimiento:</label>
+                                    @Html.DisplayFor(model => model.nb_establecimiento)
+                                    @Html.HiddenFor(model => model.nb_establecimiento)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Razón Social:</label>
+                                    @Html.DisplayFor(model => model.razon_social)
+                                    @Html.HiddenFor(model => model.razon_social)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">R.F.C.:</label>
+                                    @Html.DisplayFor(model => model.rfc)
+                                    @Html.HiddenFor(model => model.rfc)
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Número de Licencia Sanitaria:</label>
+                                    @Html.DisplayFor(model => model.folio_licencia_sanitaria)
+                                    @Html.HiddenFor(model => model.folio_licencia_sanitaria)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Tipo de Establecimiento:</label>
+                                    @Html.DisplayFor(model => model.c_tipo_establecimiento.nb_tipo_establecimiento)
+                                    @Html.HiddenFor(model => model.id_tipo_establecimiento)
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Sector:</label>
+                                    @Html.DisplayFor(model => model.c_institucion.nb_institucion)
+                                    @Html.HiddenFor(model => model.id_institucion)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <h4>Responsable del Establecimiento</h4>
+                            <hr class="red">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre Completo:</label>
+                                    @(Model.nb_responsable + " " + Model.ap_responsable + " " + Model.am_responsable)
+                                    @Html.HiddenFor(model => model.nb_responsable)
+                                    @Html.HiddenFor(model => model.ap_responsable)
+                                    @Html.HiddenFor(model => model.am_responsable)
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Especialidad Médica:</label>
+                                    @Html.DisplayFor(model => model.especialidad_responsable)
+                                    @Html.HiddenFor(model => model.especialidad_responsable)
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Folio Cédula Profesional:</label>
+                                    @Html.DisplayFor(model => model.cedula_responsable)
+                                    @Html.HiddenFor(model => model.cedula_responsable)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Correo principal:</label>
+                                    @Html.DisplayFor(model => model.email_principal_responsable)
+                                    @Html.HiddenFor(model => model.email_principal_responsable)
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Correo alterno:</label>
+                                    @Html.DisplayFor(model => model.email_alterno_responsable)
+                                    @Html.HiddenFor(model => model.email_alterno_responsable)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <h4>Director de la Unidad Médica</h4>
+                            <hr class="red">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre Completo:</label>
+                                    @(Model.nb_director_unidad + " " + Model.ap_director_unidad + " " + Model.am_director_unidad)
+                                    @Html.HiddenFor(model => model.nb_director_unidad)
+                                    @Html.HiddenFor(model => model.ap_director_unidad)
+                                    @Html.HiddenFor(model => model.am_director_unidad)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Especialidad Médica:</label>
+                                    @Html.DisplayFor(model => model.especialidad_director_unidad)
+                                    @Html.HiddenFor(model => model.especialidad_director_unidad)
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Folio Cédula Profesional:</label>
+                                    @Html.DisplayFor(model => model.cedula_director_unidad)
+                                    @Html.HiddenFor(model => model.cedula_director_unidad)
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="col-md-12">
+                            <h4>Domicilio del Establecimiento</h4>
+                            <hr class="red">
+                        </div>
+
+                        <div id="div" class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Calle:</label>
+                                    @Html.DisplayFor(model => model.calle)
+                                    @Html.HiddenFor(model => model.calle)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Número Exterior:</label>
+                                        @Html.DisplayFor(model => model.no_ext)
+                                        @Html.HiddenFor(model => model.no_ext)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">Número Interior:</label>
+                                    @Html.DisplayFor(model => model.no_int)
+                                    @Html.HiddenFor(model => model.no_int)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Entre la Calle:</label>
+                                    @Html.DisplayFor(model => model.entre_calle1)
+                                    @Html.HiddenFor(model => model.entre_calle1)
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Y la Calle:</label>
+                                    @Html.DisplayFor(model => model.entre_calle2)
+                                    @Html.HiddenFor(model => model.entre_calle2)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Colonia:</label>
+                                    @Html.DisplayFor(model => model.colonia)
+                                    @Html.HiddenFor(model => model.colonia)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="cp">Código Postal:</label>
+                                    @Html.DisplayFor(model => model.cp)
+                                    @Html.HiddenFor(model => model.cp)
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="municipio">Municipio:</label>
+                                    @Html.DisplayFor(model => model.municipio)
+                                    @Html.HiddenFor(model => model.municipio)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="ciudad">Ciudad:</label>
+                                    @Html.DisplayFor(model => model.ciudad)
+                                    @Html.HiddenFor(model => model.ciudad)
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="nb_entidad_federativa">Entidad Federativa:</label>
+                                    @Html.DisplayFor(model => model.id_entidad_federativa)
+                                    @Html.HiddenFor(model => model.id_entidad_federativa)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <h4>Documentos</h4>
+                            <hr class="red">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="btn btn-default btn-file">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                    Adjuntar Archivo PDF - Licencia Sanitaria <input type="file" id="f1" name="file1" class="form-control" style="display: none;" onchange="FileName(1)">
+                                </label>
+                                <button type="button" class="btn btn-default" title="Quitar archivo" onclick="ResetFileName(1)">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" id="nb_a1" name="nb_archivo_1" class="form-control" readonly="readonly">
+                            </div>
+                            @Html.ValidationMessageFor(model => model.nb_archivo_1, "", new { @class = "text-danger" })
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="btn btn-default btn-file">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                    Adjuntar Archivo PDF - Aviso de Responsable Sanitario <input type="file" id="f2" name="file2" class="form-control" style="display: none;" onchange="FileName(2)">
+                                </label>
+                                <button type="button" class="btn btn-default" title="Quitar archivo" onclick="ResetFileName(2)">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" id="nb_a2" name="nb_archivo_2" class="form-control" readonly="readonly">
+                            </div>
+                            @Html.ValidationMessageFor(model => model.nb_archivo_2, "", new { @class = "text-danger" })
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-offset-4 col-md-4">
+                                @Html.Recaptcha()
+                                @Html.ValidationMessage("ReCaptcha", new { @class = "text-danger" })
+                                <span id="recaptchaMsg" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group pull-right">
+                                    <br />
+                                    @Html.ActionLink("Regresar", "Paso2", new { @controller = "SolicitudIncorporacion" }, new { @class = "btn btn-default" })
+                                    <input type="submit" value="Siguiente" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+
+</body>
+</html>

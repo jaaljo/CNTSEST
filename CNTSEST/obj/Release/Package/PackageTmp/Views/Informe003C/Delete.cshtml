@@ -1,0 +1,81 @@
+﻿@model CNTS.Models.k_cnts_01_003_c
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>k_cnts_01_003_c</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_registro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_registro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_envio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_envio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uuid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uuid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nb_archivo_informe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_archivo_informe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.esta_activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.esta_activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_establecimiento.uuid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_establecimiento.uuid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_periodo.cl_periodo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_periodo.cl_periodo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

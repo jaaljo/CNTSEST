@@ -1,0 +1,140 @@
+﻿@model CNTS.Models.k_secc_a_tabla_02
+
+@{
+    ViewBag.Title = "A01";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h2>Informe CNTS-01-003-A</h2>
+<h3>SECCIÓN A. Uso Alogénico</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id_cnts_01_003_a)
+
+    <div class="row">
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <h4><strong>Donantes de acuerdo a edad y sexo</strong></h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+        </div>
+
+        <div class="col-md-2 text-center">
+            <div class="form-group">
+                <label class="control-label">18-24 años</label>
+            </div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div class="form-group">
+                <label class="control-label">25-44 años</label>
+            </div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div class="form-group">
+                <label class="control-label">45-65 años</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 text-right">
+            <div class="form-group">
+                <label class="control-label"></label>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Femenino</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Masculino</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Femenino</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Masculino</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Femenino</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Masculino</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 text-right">
+            <div class="form-group">
+                <label class="control-label">Donantes de acuerdo a edad y sexo:&emsp;</label>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c01, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c02, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c03, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c04, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c05, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c06, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-offset-9">
+            <div class="form-group">
+                @Html.ActionLink("Regresar", "Index", new { @controller = "Informe003A" }, new { @class = "btn btn-default" })
+                <input type="submit" value="Guardar" class="btn btn-primary" id="submit" />
+            </div>
+        </div>
+    </div>
+</div>
+}

@@ -1,0 +1,405 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h4>CNTS-01-003-A: Informe Mensual de la Disposiciòn de Sangre y Componentes Sanguíneos. (Modalidad A) Bancos de Sangre.</h4>
+
+<p>
+    @Html.ActionLink("Generar PDF", "GenerarPDF", new { @controller = "Informe003A" }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Enviar Informe a CNTS", "EnviarInforme", new { @controller = "Informe003A" }, new { @class = "btn btn-primary" })
+</p>
+
+<br />
+<h4>Registro de Información</h4>
+<div class="Informe002 col-md-12">
+    <div class="panel-group ficha-collapse" id="accordion">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-0" aria-expanded="false" class="collapsed">
+                        Datos Generales
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-0" aria-expanded="false" aria-controls="seccion-0"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-0" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label class="control-label" for="nb_establecimiento">Nombre del Establecimiento*:</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="codigo_establecimiento">Código:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-a" aria-expanded="false" class="collapsed">
+                        Sección A.- Uso alogénico
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-a" aria-expanded="false" aria-controls="seccion-a"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-a" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("A01", "Informe003A")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Donantes de uso alogénico
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("A02", "Informe003A")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Donantes de acuerdo a edad y sexo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("A03", "Informe003A")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Existencias al inicio del mes que informa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("A04", "Informe003A")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Ingresos y altas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Egresos y bajas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Existencias al término del mes que informa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Desglose de unidades a las que se dio destino final (no incluye las colectadas por aféresis)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Desglose de las unidades colectadas por aféresis a las cuales se les dio destino final
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-b" aria-expanded="false" class="collapsed">
+                        Sección B.- Uso autólogo (depósito previo)
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-b" aria-expanded="false" aria-controls="seccion-b"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-b" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Donantes / receptores
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Existencias al inicio del mes que informa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Ingresos y altas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Egresos y bajas
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-c" aria-expanded="false" class="collapsed">
+                        Sección C.- Eventos o reacciones adversas a la donación
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-c" aria-expanded="false" aria-controls="seccion.-c"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-c" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Eventos o reacciones adversas a la donación
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-d" aria-expanded="false" class="collapsed">
+                        Sección D.- Resultados de las pruebas de detecciónde agentes transmisibles por transfusión
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-d" aria-expanded="false" aria-controls="seccion-d"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-d" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                1. Donantes voluntarios o altruistas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                2. Donantes regulares
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                3. Donantes de repetición
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                4. Donantes familiares o de reposición
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                5. Donantes autólogos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-e" aria-expanded="false" class="collapsed">
+                        Sección E.- Resultados de otras pruebas de detección de agentes transmisibles por transfusión en donantes alogénicos
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-e" aria-expanded="false" aria-controls="seccion-e"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-e" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Resultados de otras pruebas de detección de agentes transmisibles por transfusión en donantes alogénicos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-f" aria-expanded="false" class="collapsed">
+                        Sección F.- Tipo de técnica y marca comercial empleada para la detección de agentes infecciosos transmisibles por transfusión
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-f" aria-expanded="false" aria-controls="seccion-f"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-f" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                1. Tipo de técnica y marca comercial empleada para la detección de agentes infecciosos transmisibles por transfusión
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                2. Tipo de técnica y marca comercial empleada para la detección de agentes infecciosos transmisibles por transfusión
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Observaciones y aclaraciones sobre las pruebas de laboratorio
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-g" aria-expanded="false" class="collapsed">
+                        Sección G.- Colectas de sangre en puestos de sangrado fijos y colectas externas efectuadas por el Banco de Sangre
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-g" aria-expanded="false" aria-controls="seccion-g"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-g" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Colectas de sangre en puestos de sangrados fijos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Colectas externas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-h" aria-expanded="false" class="collapsed">
+                        Sección H.- Causas de diferimientoo rechazo de donantes por género y rango de edad
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-h" aria-expanded="false" aria-controls="seccion-h"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-h" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Causas de diferimientoo rechazo de donantes por género y rango de edad
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-i" aria-expanded="false" class="collapsed">
+                        Sección I.- Desglose de intecarbio de unidades de sangre y componentes sanguíneos
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-i" aria-expanded="false" aria-controls="seccion-i"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-i" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li class="list-unstyled">
+                            <strong>Desglose de unidades recibidas del sector público o privado</strong>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                1. Recibidas del sector público
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                2. Recibidas del sector privado
+                            </a>
+                        </li>
+                        <li class="list-unstyled">
+                            <strong>Desglose de unidades suministradas al sector público o privado</strong>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                1. Suminitradas al sector público
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                2. Suministradas al sector privado
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#seccion-j" aria-expanded="false" class="collapsed">
+                        Sección J.- Grupo sanguíneo de los donadores
+                    </a>
+                </h4>
+                <button type="button" class="collpase-button collapsed" data-toggle="collapse" data-parent="#resolution" href="#seccion-j" aria-expanded="false" aria-controls="seccion-j"></button>
+            </div>
+            <div class="panel-collapse collapse" id="seccion-j" style="height: 0px;" aria-expanded="false">
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Action", "Controller")" class="btn btn-link">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Grupo sanguíneo de los donadores
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

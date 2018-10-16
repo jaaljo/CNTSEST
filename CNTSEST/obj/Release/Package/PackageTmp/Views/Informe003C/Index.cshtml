@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CNTS.Models.k_cnts_01_003_c>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_registro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_envio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uuid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nb_archivo_informe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.esta_activo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.c_establecimiento.uuid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.c_periodo.cl_periodo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_registro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_envio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uuid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nb_archivo_informe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.esta_activo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.c_establecimiento.uuid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.c_periodo.cl_periodo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_cnts_01_003_c }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_cnts_01_003_c }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_cnts_01_003_c })
+        </td>
+    </tr>
+}
+
+</table>

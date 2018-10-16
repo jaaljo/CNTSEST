@@ -1,0 +1,275 @@
+﻿@model CNTS.Models.k_secc_a_tabla_01
+
+@{
+    ViewBag.Title = "A01";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h2>Informe CNTS-01-003-A</h2>
+<h3>SECCIÓN A. Uso Alogénico</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id_cnts_01_003_a)
+
+    <div class="row">
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <h4><strong>Donantes de uso alogénico</strong></h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 text-right">
+            <div class="form-group">
+                <label class="control-label"></label>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Femenino</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Masculino</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Valorados</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Aceptados</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Exclusión temporal</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label">Exclusión definitiva</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 text-right">
+            <div class="form-group">
+                <label class="control-label">1. Número de donantes voluntarioso altruistas:&emsp;</label>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c01, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c02, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c03, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c04, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c05, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r01_c06, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 text-right">
+            <div class="form-group">
+                <label class="control-label">2. Número de donantes regulares:&emsp;</label>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r02_c01, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r02_c02, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r02_c03, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r02_c04, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r02_c05, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r02_c06, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 text-right">
+            <div class="form-group">
+                <label class="control-label">3. Número de donantes de repetición:&emsp;</label>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r03_c01, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r03_c02, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r03_c03, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r03_c04, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r03_c05, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r03_c06, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 text-right">
+            <div class="form-group">
+                <label class="control-label">4. Número de donantes familiares o de reposición:&emsp;</label>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r04_c01, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r04_c02, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r04_c03, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r04_c04, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r04_c05, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r04_c06, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 text-right">
+            <div class="form-group">
+                <label class="control-label">Totales:&emsp;</label>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r05_c01, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r05_c02, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r05_c03, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r05_c04, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r05_c05, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                @Html.EditorFor(model => model.r05_c06, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-offset-9">
+            <div class="form-group">
+                @Html.ActionLink("Regresar", "Index", new { @controller = "Informe003A" }, new { @class = "btn btn-default" })
+                <input type="submit" value="Guardar" class="btn btn-primary" id="submit" />
+            </div>
+        </div>
+    </div>
+</div>
+}

@@ -1,0 +1,50 @@
+﻿@using CNTS.Seguridad
+@using CNTS.Utilidades
+
+<nav class="navbar navbar-inverse sub-navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#subenlaces">
+                <span class="sr-only">Interruptor de Navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Registro Nacional de Bancos de Sangre</a>
+        </div>
+        <div class="collapse navbar-collapse" id="subenlaces">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Registro de Informes <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("CNTS-01-002", "Index", "Informe002")</li>
+                        <li>@Html.ActionLink("CNTS-01-003-A", "Index", "Informe003A")</li>
+                        <li>@Html.ActionLink("CNTS-01-003-B", "Index", "Informe003B")</li>
+                        <li>@Html.ActionLink("CNTS-01-003-C", "Index", "Informe003C")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("Consulta histórica", "", "")</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user" title="@(((IdentityPersonalizado)User.Identity).Name)"></i>&emsp;@(((IdentityPersonalizado)User.Identity).Codigo_establecimiento)<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="disabled h6">
+                            &emsp;
+                            Último acceso:<br />&emsp;
+                            @(Utilidades.getLastConnection())
+                            &emsp;
+                        </li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("Cambiar contraseña", "ChangePassword", "UsuarioNR")</li>
+                        <li>@Html.ActionLink("Editar datos de usuario", "Editar", "UsuarioNR")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("Manual del Sistema", "Index", "")</li>
+                        <li>@Html.ActionLink("Cerrar sesión", "Logoff", "Inicio")</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

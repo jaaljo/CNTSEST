@@ -1,0 +1,146 @@
+﻿@model CNTS.ViewModels.EditarDatosUsuarioViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<script type="text/javascript" src="~/Scripts/jquery-2.2.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({
+            container: 'body'
+        });
+    });
+
+
+    function send() {
+        $("#aviso").modal("show");
+    }
+
+    function sm() {
+        $("#form").submit();
+    }
+
+</script>
+
+
+
+<div class="modal fade" id="aviso" tabindex="-1" role="dialog" aria-labelledby="Aviso" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <center>
+                    <h2 class="modal-title" id="gridModalLabel" style="color: #fff;">Aviso</h2>
+                </center>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                Al presionar el botón de guardar, se cerrará sesión para poder realizar los cambios.<br /><br />
+                Asegurese de recordar su correo electrónico en caso de modificarlo.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sm()">Guardar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h2>Editar</h2>
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal well">
+        <h4>Usuario @User.Identity.Name</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="form-group has-error">
+                <label class="control-label col-xs-3 col-md-2">Nombre</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.nb_establecimiento, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="hover" data-content="Ingrese el nombre de usuario.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.nb_establecimiento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group has-error">
+                <label class="control-label col-xs-3 col-md-2">Correo electrónico principal</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.email_principal, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="hover" data-content="Ingrese el correo electrónico principal.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.email_principal, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-xs-3 col-md-2">Correo electrónico secundario</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.email_alterno, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="hover" data-content="Ingrese el correo electrónico secundario.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.email_alterno, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group has-error">
+                <label class="control-label col-xs-3 col-md-2">Número telefónico</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="hover" data-content="Debe ser un número telefónico valido.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-6 col-md-5">
+                    <input type="button" value="Guardar" class="btn btn-primary" onclick="send()" />
+                    @Html.ActionLink("Regresar", "Index", "Home", "", new { @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
